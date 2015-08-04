@@ -1,0 +1,14 @@
+<a role="button" {{action "toggleActive"}}>{{primaryAction.label}}</a>
+<ul class="dropdown-menu">
+  {{#each optionsWithoutPrimaryAction as |option|}}
+    {{#if option.isDivider}}
+      <li class="divider"></li>
+    {{else}}
+      {{#if option.action}}
+        <li><a role="button" {{action 'sendAc' option.action}}>{{option.label}}</a></li>
+      {{else}}
+        <li><a role="button">{{option.label}}</a></li>
+      {{/if}}
+    {{/if}}
+  {{/each}}
+</ul>

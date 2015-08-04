@@ -1,3 +1,18 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <div class="nav">
+        <div class="nav-header">
+          <h3>{{#link-to 'application'}}Dummy{{/link-to}}</h3>
+        </div>
+        <ul class="nav-stacked">
+          <li>{{#link-to 'button'}}Button{{/link-to}}</li>
+          <li>{{#link-to 'navbar'}}Navbar{{/link-to}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      {{outlet}}
+    </div>
+  </div>
+</div>

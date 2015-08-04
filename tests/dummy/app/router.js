@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('button');
+  this.route('navbar');
 });
 
 export default Router;
