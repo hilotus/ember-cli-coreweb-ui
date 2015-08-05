@@ -36,6 +36,7 @@ export default Ember.Component.extend(ClickElseWhereMixin, {
       if (action) {
         this.set('menuClick', action);
         this.sendAction('menuClick', this.get('context'));
+        this.send('toggleActive');
       }
     }
   }
