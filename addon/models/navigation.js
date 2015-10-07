@@ -5,6 +5,10 @@ export default Ember.Object.extend(NavigatableVaryMixin, {
   navs: [],
 
   generateFromJson: function (json) {
+    if (!json.navs) {
+      json.navs = [];
+    }
+
     this.navs = json.navs.map(function (nav) {
       return this.generateNavFromJson(nav);
     }, this);
@@ -12,7 +16,15 @@ export default Ember.Object.extend(NavigatableVaryMixin, {
   },
 
   generateNavFromJson: function (json) {
+    if (!json.sections) {
+      json.sections = [];
+    }
+
     json.sections = json.sections.map(function (section) {
+      if (!section.rows) {
+        section.rows = [];
+      }
+
       section.rows = section.rows.map(function (row) {
         return this.container.lookupFactory('ui-model:' + row.type + '-row').create(row);
       }, this);

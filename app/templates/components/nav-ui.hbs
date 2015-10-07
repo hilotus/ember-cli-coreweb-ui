@@ -95,11 +95,12 @@
                       <div class="row select-row" {{action 'onClick' item target=row}}>
                         <div class="left">{{item.title}}</div>
                         <div class="right">
-                          {{selected-item item row.selectedModel '<i class="fa fa-check-square-o"></i>'}}
+                          {{selected-item item.value row.selectedValue '<i class="fa fa-check-square-o"></i>'}}
                         </div>
                       </div>
                     {{/each}}
                   {{/if}}
+
                 {{/each}}
 
               </div>

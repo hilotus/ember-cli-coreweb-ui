@@ -1,7 +1,7 @@
 import Row from '../row';
 
 export default Row.extend({
-  type: "select",
+  type: 'select',
 
   /**
     [
@@ -10,9 +10,9 @@ export default Row.extend({
     ]
   **/
   model: [],
-  selectedModel: null,
+  selectedValue: null,
 
   onClick: function (item) {
-    this.set('selectedModel', item);
+    this.set('selectedValue', item.value);
   }
 });

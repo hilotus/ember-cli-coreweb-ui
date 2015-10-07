@@ -45,7 +45,14 @@ export default Ember.Controller.extend({
             {
               title: 'Language',
               rows: [
-                { type: 'select', model: [{title: 'English (US)', value: 'en-us'}, {title: 'Simple Chinese', value: 'zh-cn'}] }
+                {
+                  type: 'select',
+                  selectedValue: 'en-us',
+                  model: [
+                    {title: 'English (US)', value: 'en-us'},
+                    {title: 'Simple Chinese', value: 'zh-cn'}
+                  ]
+                }
               ]
             }
           ]

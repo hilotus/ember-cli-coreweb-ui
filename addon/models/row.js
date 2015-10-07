@@ -9,6 +9,5 @@ export default Ember.Object.extend({
   isClick: Ember.computed.equal('type', 'click'),
   isInput: Ember.computed.equal('type', 'input'),
   isDelete: Ember.computed.equal('type', 'delete'),
-  isButton: Ember.computed.equal('type', 'button'),
-  isSelect: Ember.computed.equal('type', 'select')
+  isButton: Ember.computed.equal('type', 'button')
 });
