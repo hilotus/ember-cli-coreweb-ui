@@ -1,0 +1,6 @@
+<div class="section-title">{{model.title}}</div>
+<div class="rows">
+  {{#each model.rows as |row|}}
+    {{nav-row model=row selectedValue=model.selectedValue}}
+  {{/each}}
+</div>

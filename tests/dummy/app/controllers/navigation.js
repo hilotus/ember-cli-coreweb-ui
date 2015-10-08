@@ -32,27 +32,34 @@ export default Ember.Controller.extend({
                       }.bind(this),
                       leftButtonTitle: 'Back',
                       sections: [
-                        { title: 'Section Two', rows: [] }
+                        {
+                          title: 'Section Two',
+                          rows: [
+                            { title: 'Record 1', canDelete: true, delete: function () { window.alert(1); }, type: 'delete' },
+                            { title: 'Record 2', canDelete: true, delete: function () { window.alert(2); }, type: 'delete' },
+                            { title: 'Record 3', canDelete: true, delete: function () { window.alert(3); }, type: 'delete' },
+                            { title: 'Record 4', canDelete: true, delete: function () { window.alert(4); }, type: 'delete' },
+                            { title: 'Record 5', canDelete: true, delete: function () { window.alert(5); }, type: 'delete' },
+                            { title: 'Record 6', canDelete: false, delete: function () { window.alert(6); }, type: 'delete' },
+                            { title: 'Record 7', canDelete: false, delete: function () { window.alert(7); }, type: 'delete' },
+                          ]
+                        }
                       ]
                     });
                   }.bind(this)
                 },
-                { placeholder: 'Please input your username.', onEnter: function () { window.alert(1); }, type: 'input' },
-                { title: 'I can be deleted.', canDelete: true, delete: function () { window.alert(3); }, type: 'delete' },
+                { placeholder: 'Please input your username.', onEnter: function () { window.alert('input'); }, type: 'input' },
+                { title: 'I can be deleted.', canDelete: true, delete: function () { window.alert('delete'); }, type: 'delete' },
                 { title: 'Button Title', onClick: function () { window.alert(2); }, type: 'button' }
               ]
             },
             {
-              title: 'Language',
+              type: 'select',
+              title: 'Select Language',
+              selectedValue: 'en-us',
               rows: [
-                {
-                  type: 'select',
-                  selectedValue: 'en-us',
-                  model: [
-                    {title: 'English (US)', value: 'en-us'},
-                    {title: 'Simple Chinese', value: 'zh-cn'}
-                  ]
-                }
+                {type: 'select-option', title: 'English (US)', value: 'en-us'},
+                {type: 'select-option', title: 'Simple Chinese', value: 'zh-cn'}
               ]
             }
           ]

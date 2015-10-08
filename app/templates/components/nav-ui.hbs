@@ -21,95 +21,10 @@
         </div>
         <div class="sections">
           {{#each nav.sections as |section|}}
-            <div class="section">
-              <div class="section-title">{{section.title}}</div>
-              <div class="rows">
-                {{#each section.rows as |row|}}
-                  {{!-- discript row --}}
-                  {{#if row.isDescript}}
-                    <div class="row descript-row">
-                      <div class="left">{{row.title}}</div>
-                      <div class="right">{{row.description}}</div>
-                    </div>
-                  {{/if}}
-
-                  {{!-- update row --}}
-                  {{#if row.isUpdate}}
-                    {{#if row.isEditing}}
-                      <div class="row input-row">
-                        {{update-row-input value=row.bufferedValue target=row}}
-                      </div>
-                    {{else}}
-                      <div class="row update-row" {{action 'edit' target=row}}>
-                        <div class="left">{{row.key}}</div>
-                        <div class="right">{{row.value}}</div>
-                      </div>
-                    {{/if}}
-                  {{/if}}
-
-                  {{!-- delete row --}}
-                  {{#if row.isDelete}}
-                    {{#if row.isEditing}}
-                      <div class="row input-row">
-                        {{update-row-input value=row.bufferedTitle target=row}}
-                      </div>
-                    {{else}}
-                      {{#if row.canDelete}}
-                        <div class="row delete-row">
-                          <div class="left" {{action 'edit' target=row}}>{{row.title}}</div>
-                          <div class="right" {{action 'delete' target=row}}><i class="fa fa-times"></i></div>
-                        </div>
-                      {{else}}
-                        <div class="row delete-row" {{action 'edit' target=row}}>
-                          <div class="left">{{row.title}}</div>
-                        </div>
-                      {{/if}}
-                    {{/if}}
-                  {{/if}}
-
-                  {{!-- click row --}}
-                  {{#if row.isClick}}
-                    <div class="row click-row" {{action 'onClick' target=row}}>
-                      <div class="left">{{row.title}}</div>
-                      <div class="right"><i class="{{row.icon}}"></i></div>
-                    </div>
-                  {{/if}}
-
-                  {{!-- input row --}}
-                  {{#if row.isInput}}
-                    <div class="row input-row">
-                      {{input type=row.inputType placeholder=row.placeholder value=row.value enter=row.onEnter}}
-                    </div>
-                  {{/if}}
-
-                  {{!-- button row --}}
-                  {{#if row.isButton}}
-                    <div class="row button-row {{if row.disabled 'disabled'}}" {{action 'onClick' target=row}}>
-                      {{row.title}}
-                    </div>
-                  {{/if}}
-
-                  {{!-- select row --}}
-                  {{#if row.isSelect}}
-                    {{#each row.model as |item|}}
-                      <div class="row select-row" {{action 'onClick' item target=row}}>
-                        <div class="left">{{item.title}}</div>
-                        <div class="right">
-                          {{selected-item item.value row.selectedValue '<i class="fa fa-check-square-o"></i>'}}
-                        </div>
-                      </div>
-                    {{/each}}
-                  {{/if}}
-
-                {{/each}}
-
-              </div>
-            </div>
+            {{nav-section model=section}}
           {{/each}}
-
         </div>
       </div>
     {{/each}}
-
   </div>
 </div>

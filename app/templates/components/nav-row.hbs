@@ -1,0 +1,73 @@
+{{!-- discript row --}}
+{{#if model.isDescript}}
+  <div class="row descript-row">
+    <div class="left">{{model.title}}</div>
+    <div class="right">{{model.description}}</div>
+  </div>
+{{/if}}
+
+{{!-- update row --}}
+{{#if model.isUpdate}}
+  {{#if model.isEditing}}
+    <div class="row input-row">
+      {{update-row-input value=model.bufferedValue target=model}}
+    </div>
+  {{else}}
+    <div class="row update-row" {{action 'edit' target=model}}>
+      <div class="left">{{model.key}}</div>
+      <div class="right">{{model.value}}</div>
+    </div>
+  {{/if}}
+{{/if}}
+
+{{!-- delete row --}}
+{{#if model.isDelete}}
+  {{#if model.isEditing}}
+    <div class="row input-row">
+      {{update-row-input value=model.bufferedTitle target=model}}
+    </div>
+  {{else}}
+    {{#if model.canDelete}}
+      <div class="row delete-row">
+        <div class="left" {{action 'edit' target=model}}>{{model.title}}</div>
+        <div class="right" {{action 'delete' target=model}}><i class="fa fa-times"></i></div>
+      </div>
+    {{else}}
+      <div class="row delete-row" {{action 'edit' target=model}}>
+        <div class="left">{{model.title}}</div>
+      </div>
+    {{/if}}
+  {{/if}}
+{{/if}}
+
+{{!-- click row --}}
+{{#if model.isClick}}
+  <div class="row click-row" {{action 'onClick' target=model}}>
+    <div class="left">{{model.title}}</div>
+    <div class="right"><i class="{{model.icon}}"></i></div>
+  </div>
+{{/if}}
+
+{{!-- input row --}}
+{{#if model.isInput}}
+  <div class="row input-row">
+    {{input type=model.inputType placeholder=model.placeholder value=model.value enter=model.onEnter}}
+  </div>
+{{/if}}
+
+{{!-- button row --}}
+{{#if model.isButton}}
+  <div class="row button-row {{if model.disabled 'disabled'}}" {{action 'onClick' target=model}}>
+    {{model.title}}
+  </div>
+{{/if}}
+
+{{!-- select option row --}}
+{{#if model.isSelectOption}}
+  <div class="row select-option-row" {{action 'onClick' model}}>
+    <div class="left">{{model.title}}</div>
+    <div class="right">
+      {{selected-item model.value selectedValue '<i class="fa fa-check-square-o"></i>'}}
+    </div>
+  </div>
+{{/if}}
