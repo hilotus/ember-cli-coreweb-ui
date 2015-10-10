@@ -8,8 +8,10 @@ export default Ember.Component.extend({
   selectedValue: null,
 
   actions: {
-    onClick: function (option) {
-      this.set('selectedValue', option.value);
+    onClick: function (model) {
+      this.set('selectedValue', model.value);
+      // select mdoel in select section
+      model.select();
     }
   }
 });
