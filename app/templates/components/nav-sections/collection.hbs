@@ -1,0 +1,29 @@
+<div class="section-title">{{model.title}}</div>
+<div class="rows">
+  {{#if model.canCreate}}
+    <div class="row input-row">
+      {{input type='text' value=newItemTitle placeholder=model.createInputPlaceholder enter='onEnter'}}
+    </div>
+  {{/if}}
+
+  {{#each model.collection as |item|}}
+    {{#if model.canEdit}}
+      {{#if item.isEditing}}
+        <div class="row input-row">
+          {{update-row-input value=item.bufferedTitle target=item}}
+        </div>
+      {{else}}
+        <div class="row collection-item-row">
+          <div class="left" {{action 'doEdit' target=item}}>{{item.modelTitle}}</div>
+          {{#if model.canDelete}}
+            <div class="right" {{action 'doDelete' item target=model}}><i class="fa fa-times"></i></div>
+          {{/if}}
+        </div>
+      {{/if}}
+    {{else}}
+      <div class="row collection-item-row" {{action 'doEdit' target=item}}>
+        <div class="left">{{item.modelTitle}}</div>
+      </div>
+    {{/if}}
+  {{/each}}
+</div>

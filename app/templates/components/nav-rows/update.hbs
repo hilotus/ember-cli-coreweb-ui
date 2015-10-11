@@ -1,0 +1,8 @@
+{{#if isEditing}}
+  <div class="row input-row">
+    {{update-row-input value=bufferedValue target=this}}
+  </div>
+{{else}}
+  <div class="left">{{model.title}}</div>
+  <div class="right">{{model.value}}</div>
+{{/if}}

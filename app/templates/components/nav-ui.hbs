@@ -21,7 +21,13 @@
         </div>
         <div class="sections">
           {{#each nav.sections as |section|}}
-            {{nav-section model=section}}
+            {{#if section.isCollection}}
+              {{nav-sections/collection model=section}}
+            {{else if section.isSelect}}
+              {{nav-sections/select model=section}}
+            {{else}}
+              {{nav-sections/section model=section}}
+            {{/if}}
           {{/each}}
         </div>
       </div>

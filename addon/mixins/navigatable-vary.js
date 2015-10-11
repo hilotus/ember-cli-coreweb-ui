@@ -22,7 +22,10 @@ export default Ember.Mixin.create({
     }
     this.set("isMove", true);
 
-    this.get('navs').pushObject(this.generateNavFromJson(nav));
+    if (!(nav instanceof Ember.Object)) {
+      nav = this.createNavigatable(nav);
+    }
+    this.get('navs').pushObject(nav);
 
     var wait = this.get('wait'),
       $elem = this.get('element'),

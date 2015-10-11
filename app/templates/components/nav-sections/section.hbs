@@ -1,0 +1,18 @@
+<div class="section-title">{{model.title}}</div>
+<div class="rows">
+  {{#each model.rows as |row|}}
+    {{#if row.isClick}}
+      {{nav-rows/click model=row}}
+    {{else if row.isDescript}}
+      {{nav-rows/descript model=row}}
+    {{else if row.isInput}}
+      {{nav-rows/input model=row}}
+    {{else if row.isButton}}
+      {{nav-rows/button model=row}}
+    {{else if row.isUpdate}}
+      {{nav-rows/update model=row}}
+    {{else}}
+      {{nav-rows/row model=row}}
+    {{/if}}
+  {{/each}}
+</div>

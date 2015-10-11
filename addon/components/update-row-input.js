@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.TextField.extend({
+  targetOject: null,
+
   // press Enter key
   insertNewline: function() {
     this.get('target').doneEditing();
