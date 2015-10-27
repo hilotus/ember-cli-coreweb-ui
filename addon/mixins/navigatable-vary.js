@@ -46,7 +46,7 @@ export default Ember.Mixin.create({
       this.set('isMove', false);
       this.set('navCount', navCount);
       Ember.run.cancel(runLater);
-      $elem.css({'height': $well.height() + 'px'});
+      // $elem.css({'height': $well.height() + 'px'});
     }, wait);
   },
 
@@ -70,11 +70,10 @@ export default Ember.Mixin.create({
 
     var runLater = Ember.run.later(this, function(){
       this.set('navs', this.get('navs').slice(0, this.get('navs.length') - 1));
-
       this.set('isMove', false);
       this.set('navCount', navCount - 1);
       Ember.run.cancel(runLater);
-      $elem.css({'height': $well.height() + 'px'});
+      // $elem.css({'height': $well.height() + 'px'});
     }, wait);
   }
 });
